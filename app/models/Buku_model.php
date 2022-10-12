@@ -1,7 +1,7 @@
 <?php
-class Kategori_model
+class Buku_model
 {
-    private $table = 'kategori';
+    private $table = 'buku';
     private $db;
 
     public function __construct()
@@ -9,19 +9,16 @@ class Kategori_model
         $this->db = new Database;
     }
 
-    public function getAllKategori()
+    public function getAllBuku()
     {
-        $this->db->query('SELECT * FROM ' . $this->table);
-        return $this->db->resultSet();
+        $this->db->query("SELECT buku.*, kategori.nama_kategori FROM buku JOIN kategori ON buku.id_kategori = kategori.id");
     }
 
-    public function tambahDataKategori($data)
+    public function tambahDataBuku($data)
     {
-        $query = "INSERT INTO kategori
-                    VALUES
-                    ('', :nama_kategori)";
+        $query = "INSERT INTO buku VALUES ('', :nama_buku)";
         $this->db->query($query);
-        $this->db->bind('nama_kategori', $data['nama_kategori']);
+        $this->db->bind('nama_buku', $data['nama_buku']);
         $this->db->execute();
         return $this->db->rowCount();
     }
