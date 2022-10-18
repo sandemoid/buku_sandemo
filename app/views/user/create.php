@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Ulangi Password</label>
-                                    <input type="password" class="form-control" placeholder="masukkan password..." name="ulangi_password">
+                                    <input type="password" class="form-control" placeholder="ulagni password..." name="ulangi_password">
                                 </div>
                             </div>
                             <!-- /.card-body -->

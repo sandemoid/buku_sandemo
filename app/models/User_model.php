@@ -57,19 +57,25 @@ class User_model
         return $this->db->rowCount();
     }
 
-    public function ubahDataUser($data)
+    public function updateDataUser($data)
     {
-        $query = "UPDATE user SET
-                    nama = :nama,
-                    username = :username,
-                    password = :password,
-                    WHERE id = :id";
-
-        $this->db->query($query);
-        $this->db->bind('nama', $data['nama']);
-        $this->db->bind('username', $data['username']);
-        $this->db->bind('password', $data['password']);
-        $this->db->bind('id', $data['id']);
+        if (empty($data['password'])) {
+            $query = "UPDATE user SET
+                        nama = :nama
+                        WHERE id = :id";
+            $this->db->query($query);
+            $this->db->bind('nama', $data['nama']);
+            $this->db->bind('id', $data['id']);
+        } else {
+            $query = "UPDATE user SET
+                        nama = :nama,
+                        password = :password
+                        WHERE id = :id";
+            $this->db->query($query);
+            $this->db->bind('nama', $data['nama']);
+            $this->db->bind('password', md5($data['password']));
+            $this->db->bind('id', $data['id']);
+        }
 
         $this->db->execute();
 

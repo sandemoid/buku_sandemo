@@ -22,8 +22,8 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
-                                <a href="<?= base_url; ?>/buku/create" class="btn float-left btn btn-primary">Tambah Buku</a>
-                                <a href="<?= base_url; ?>/buku/laporan" class="btn float-left btn btn-info">Laporan Buku</a>
+                                <a href="<?= base_url; ?>/buku/create" class="btn float-left btn btn-primary mr-2">Tambah Buku</a>
+                                <a href="<?= base_url; ?>/buku/laporan" class="btn float-left btn btn-info mr-2">Laporan Buku</a>
                                 <a href="<?= base_url; ?>/buku/lihatlaporan" class="btn float-left btn btn-success">Lihat Laporan Buku</a>
                                 <thead>
                                     <tr>
